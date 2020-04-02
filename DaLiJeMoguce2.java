@@ -2,6 +2,43 @@
 public class DaLiJeMoguce2 {
 	public static boolean daLiMoze(Figura tabla[][],int trenutnoX,int trenutnoY,int pomerenoX,int pomerenoY) {
 		
+		if(tabla[trenutnoX][trenutnoY].toString().equals(" Pb")) {
+			if(trenutnoX < 7 && trenutnoY < 7)
+			if(tabla[trenutnoX+1][trenutnoY+1] != null && (trenutnoY+1 == pomerenoY) && trenutnoX+1 == pomerenoX)
+				return true;
+			if(trenutnoX < 7 && trenutnoY < 7)
+			if(tabla[trenutnoX+1][trenutnoY+1] == null && (trenutnoY+1 == pomerenoY) && trenutnoX+1 == pomerenoX)
+				return false;
+		}
+		if(tabla[trenutnoX][trenutnoY].toString().equals(" Pb")) {
+			//	System.out.println(t.tabla[trenutnoX][trenutnoY].toString() + trenutnoX + trenutnoY + pomerenoX + pomerenoY);
+			if(trenutnoX != 0 && trenutnoY < 7) {
+			if(tabla[trenutnoX-1][trenutnoY+1] != null && (trenutnoY+1 == pomerenoY) && trenutnoX-1 == pomerenoX)
+				return true;
+			if(tabla[trenutnoX-1][trenutnoY+1] == null && (trenutnoY+1 == pomerenoY) && trenutnoX-1 == pomerenoX)
+				return false;
+			}
+		}
+		
+		if(tabla[trenutnoX][trenutnoY].toString().equals(" Pc")) {
+			//		System.out.println(t.tabla[trenutnoX][trenutnoY].toString() + trenutnoX + trenutnoY + pomerenoX + pomerenoY);
+			if(trenutnoY != 0 && trenutnoX < 7) {
+			if(tabla[trenutnoX+1][trenutnoY-1] != null && (trenutnoY-1 == pomerenoY) && trenutnoX+1 == pomerenoX)
+				return true;
+			if(tabla[trenutnoX+1][trenutnoY-1] == null && (trenutnoY-1 == pomerenoY) && trenutnoX+1 == pomerenoX)
+				return false;
+			}
+		}
+		if(tabla[trenutnoX][trenutnoY].toString().equals(" Pc")) {
+			//	System.out.println(t.tabla[trenutnoX][trenutnoY].toString() + trenutnoX + trenutnoY + pomerenoX + pomerenoY);
+			if(trenutnoX != 0 && trenutnoY != 0) {
+			if(tabla[trenutnoX-1][trenutnoY-1] != null && (trenutnoY-1 == pomerenoY) && trenutnoX-1 == pomerenoX)
+				return true;
+			if(tabla[trenutnoX-1][trenutnoY-1] == null && (trenutnoY-1 == pomerenoY) && trenutnoX-1 == pomerenoX)
+				return false;
+			}
+		}
+		
 		
 		if(trenutnoX==pomerenoX && trenutnoY != pomerenoY) {
 			if(trenutnoY < pomerenoY) {

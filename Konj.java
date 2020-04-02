@@ -15,6 +15,7 @@ public class Konj extends Figura {
 		
 		int pomerajX = Math.abs(pomerenoX - trenutnoX);
 		int pomerajY = Math.abs(pomerenoY - trenutnoY);
+	//	System.out.println("Konj " + pomerajX + pomerajY);
 		
 		if(pomerajX == 0 || pomerajY == 0 )
 			return false;

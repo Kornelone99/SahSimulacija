@@ -18,6 +18,20 @@ public class Tabla {
 		return false;
 	}
 	
+	public static void proveriZadnjeRedove(Figura tabla[][]) {
+		for(int i=0;i<7;i++) {
+			if(tabla[i][0]!= null)
+			if(tabla[i][0].toString().equals(" Pc")) {
+				tabla[i][0] = new Dama("c");
+			}
+		}
+		for(int i=0;i<7;i++) {
+			if(tabla[i][7]!= null)
+			if(tabla[i][7].toString().equals(" Pb")) {
+				tabla[i][7] = new Dama("b");
+			}
+		}
+	}
 	
 	boolean odigrajPotez(int trenutnoX,int trenutnoY,int pomerenoX,int pomerenoY) {
 		if(daLiJeMat)
@@ -69,7 +83,6 @@ public class Tabla {
 				}
 				else {
 					if(pomerenoY == trenutnoY - 1 && trenutnoY == 3) {
-						System.out.println("dsadjd");
 						if(trenutnoX+1 == pomerenoX && tabla[pomerenoX][pomerenoY] == null && tabla[trenutnoX+1][3].toString().equals(" Pb")) {
 					//		System.out.println("dsadjd " + pretPrethodniYc + " " + trenutnoY);
 							if(pretPrethodniYc == trenutnoY -2 && pretPrethodniXc == trenutnoX+1 && prethodniYc == trenutnoY) {
@@ -81,7 +94,6 @@ public class Tabla {
 						else if(trenutnoX-1 == pomerenoX && tabla[pomerenoX][pomerenoY] == null && tabla[trenutnoX-1][3].toString().equals(" Pb")) {
 						//	System.out.println("dsadjd " + pretPrethodniY + " " + trenutnoY);
 							if(pretPrethodniYc == trenutnoY -2 && pretPrethodniXc == trenutnoX-1 && prethodniYc == trenutnoY) {
-						//		System.out.println("dsadjd");
 								tabla[pomerenoX][pomerenoY] = tabla[pomerenoX][trenutnoY];
 								tabla[pomerenoX][trenutnoY] = null;
 							}
@@ -99,6 +111,7 @@ public class Tabla {
 						else {
 							naPotezu = "bela";
 						}
+						proveriZadnjeRedove(tabla);
 						return true;
 					}
 				}
@@ -111,6 +124,7 @@ public class Tabla {
 						else {
 							naPotezu = "bela";
 						}
+						proveriZadnjeRedove(tabla);
 						return true;
 					}
 				}
@@ -124,7 +138,7 @@ public class Tabla {
 					
 					if(!Kralj.proveriKralja(this,naPotezu,trenutnoX,trenutnoY,pomerenoX,pomerenoY,tabla[trenutnoX][trenutnoY])) {
 						if(GameOver.daLiJeMat(this, naPotezu)) {
-							System.out.println("MAt je");
+							System.out.println("MAT");
 							daLiJeMat = true;
 						}
 						else
@@ -141,6 +155,7 @@ public class Tabla {
 					else {
 						naPotezu = "bela";
 					}
+					proveriZadnjeRedove(tabla);
 					return true;
 				}
 				else {
@@ -180,6 +195,9 @@ public class Tabla {
 						return false;
 					}
 				}
+				else {
+					return false;
+				}
 				
 				if(naPotezu == "bela")
 					if(f1.toString().toCharArray()[2] == 'b') {
@@ -198,13 +216,13 @@ public class Tabla {
 					naPotezu = "bela";
 				}
 				
-				System.out.println("DSJAAAAAA");
+				
 				
 				
 				tabla[trenutnoX][trenutnoY] = null;
 				tabla[pomerenoX][pomerenoY] = f;
 				
-
+				proveriZadnjeRedove(tabla);
 				return true;
 			}
 		}

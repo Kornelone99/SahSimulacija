@@ -63,7 +63,7 @@ public class Kralj extends Figura {
 					if(pom[i][j] != null && pom[i][j].toString().toCharArray()[2] == 'c') {
 						if(DaLiJeMoguce2.daLiMoze(pom, i, j, kraljX, kraljY)) {
 							if(pom[i][j].provera("crna", i, j, kraljX, kraljY)) {
-								System.out.println("Kod kralja " + pom[i][j].toString() + " " + i + j +" "+  kraljX + kraljY);
+			//					System.out.println("Kod kralja " + pom[i][j].toString() + " " + i + j +" "+  kraljX + kraljY);
 								return false;
 							}
 						}
@@ -116,9 +116,11 @@ public class Kralj extends Figura {
 	}
 	
 	public static boolean rokada(Tabla t,int trenutnoX,int trenutnoY,int pomerenoX,int pomerenoY,String boja) {
+	//	System.out.println("Pokusaj rokade  ");
 		if(boja == "bela") {
+		//	System.out.println("Pokusaj rokadeeeeeee  ");
 			if(trenutnoX == 4 && pomerenoX == 6 && trenutnoY == 0 && pomerenoY == 0) {
-				if(t.tabla[5][0] == null && t.tabla[6][0] == null && t.tabla[7][0].toString().equals(" Tb")) 
+				if(t.tabla[5][0] == null && t.tabla[6][0] == null && t.tabla[7][0].toString().equals(" Tb")) {
 					if(proveriKralja(t,boja,trenutnoX,trenutnoY,pomerenoX-1,pomerenoY,t.tabla[4][0]))
 						if(proveriKralja(t,boja,trenutnoX,trenutnoY,pomerenoX-1,pomerenoY,t.tabla[4][0])) {
 							t.tabla[6][0] = t.tabla[4][0];
@@ -127,6 +129,7 @@ public class Kralj extends Figura {
 							t.tabla[7][0] = null;
 							return true;
 						}
+				}
 			}
 		}
 		else {

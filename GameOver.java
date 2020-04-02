@@ -39,8 +39,8 @@ public class GameOver {
 												System.out.println("U game overu " + pomX + pomY + " " + k + l);
 												return false;
 											}
-											else
-												System.out.println(pomX + pomY + " " + k + l);
+										//	else
+										//		System.out.println(pomX + pomY + " " + k + l);
 										}
 									}
 								}
@@ -65,11 +65,11 @@ public class GameOver {
 										if((fig.provera("crna", pomX, pomY, k, l))) {
 								//		System.out.println("U gameoveru " + pomX + pomY);
 											if(Kralj.proveriKralja(t,boja,pomX,pomY,k,l,fig)) {
-										//		System.out.println("U game overu " + pomX + pomY + " " + k + l);
+									//			System.out.println("U game overu " + pomX + pomY + " " + k + l);
 												return false;
 											}
-											else
-												System.out.println(pomX + pomY + " " + k + l);
+										//	else
+											//	System.out.println(pomX + pomY + " " + k + l);
 										}
 									}
 								}
